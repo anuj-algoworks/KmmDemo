@@ -2,11 +2,7 @@ package com.kdroid.kmmdemo.android.ui.login
 
 import android.app.Activity
 import android.content.Intent
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -14,8 +10,11 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.kdroid.kmmdemo.Greeting
-import com.kdroid.kmmdemo.R
 import com.kdroid.kmmdemo.android.databinding.ActivityLoginBinding
 import com.kdroid.kmmdemo.android.ui.home.HomeActivity
 
@@ -111,7 +110,9 @@ class LoginActivity : AppCompatActivity() {
             "$welcome $displayName",
             Toast.LENGTH_LONG
         ).show()
+
         val intent = Intent(this,HomeActivity::class.java)
+        intent.putExtra("name",displayName)
         startActivity(intent)
     }
 
